@@ -2,7 +2,7 @@
   (:require [clojure.data.json :as json])
   (:gen-class))
 
-(def recentTrackURL "http://ws.audioscrobbler.com/2.0/?method=user.recenttracks.json&user=ahjones&api_key=b25b959554ed76058ac220b7b2e0a026&format=json")
+(def recentTrackURL "http://ws.audioscrobbler.com/2.0/?method=user.recenttracks.json&user=ahjones&api_key=b387c83a6f50d82dbc4b5902fec6698c&format=json")
 
 (defn firstArtist [tracks]
   (get-in tracks [:recenttracks :track 0 :artist :#text]))
@@ -13,6 +13,6 @@
 (defn -main [& args]
      (let [trackText (slurp (.openStream (java.net.URL. recentTrackURL)))
 	   tracks (json/read-json trackText)]
-       (println (str (firstArtist tracks) " by " (firstName tracks)))))
+       (println (str (firstArtist tracks) " - " (firstName tracks)))))
 
 
