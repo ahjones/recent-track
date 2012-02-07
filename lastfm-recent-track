@@ -1,0 +1,4 @@
+#!/bin/bash
+
+d=`dirname $0`
+java -jar "$d/recent-track-1.0.0-SNAPSHOT-standalone.jar" 2> /dev/null
